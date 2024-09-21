@@ -1,4 +1,16 @@
-Airflow LDI sandbox
+Airflow LDI sandbox Sept 2024
 
-Use helm for installing Airflow locally in Mac Book Pro
-https://airflow.apache.org/docs/helm-chart/stable/index.html
+Use for Udemy Airflow training: https://www.udemy.com/course/the-complete-hands-on-course-to-master-apache-airflow/learn/lecture/32289376?start=1#questions
+
+Run in MacOs:
+- Start Docker desktop 
+- Run Docker compose:
+`docker-compose up -d`
+
+You can use : `deploy.sh` bash script 
+
+Open your web browser and go to Airflow UI: `http://localhost:8080`
+
+Default account/pwd: admin/admin
+
+
