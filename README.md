@@ -13,4 +13,6 @@ Open your web browser and go to Airflow UI: `http://localhost:8080`
 
 Default account/pwd: admin/admin
 
+Check containers status: `docker compose ps`
+
 
