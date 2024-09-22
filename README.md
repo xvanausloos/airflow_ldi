@@ -4,15 +4,11 @@ Use for Udemy Airflow training: https://www.udemy.com/course/the-complete-hands-
 
 Run in MacOs:
 - Start Docker desktop 
-- Run Docker compose:
-`docker-compose up -d`
-
-You can use : `deploy.sh` bash script 
+- Run script `deploy.sh` bash script 
 
 Open your web browser and go to Airflow UI: `http://localhost:8080`
 
 Default account/pwd: admin/admin
 
-Check containers status: `docker compose ps`
 
 
