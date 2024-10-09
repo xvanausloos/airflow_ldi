@@ -14,8 +14,7 @@ default_args = {
 dag = DAG(
     dag_id=my_dag_id,
     start_date=datetime(2023, 1, 1),
-    schedule_interval=timedelta(seconds=5),
-    catchup=False
+    schedule_interval=timedelta(seconds=5)    
 )
     
 create_table_task = PostgresOperator(
@@ -30,5 +29,3 @@ create_table_task = PostgresOperator(
             password TEXT NOT NULL,
             email TEXT NOT NULL);'''   
     )
-
-
