@@ -2,12 +2,10 @@ from airflow import DAG
 from datetime import datetime
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 
-my_dag_id = 'user_processing'
-
-
+my_dag_id = 'dag_pg_connect1'
 
 dag = DAG(
-    dag_id="user_processing",
+    dag_id=my_dag_id,
     start_date=datetime(2023, 1, 1),
     schedule_interval="@daily",
     catchup=False
