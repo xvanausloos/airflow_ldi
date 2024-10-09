@@ -26,5 +26,5 @@ dag = DAG(
 # Here's a task based on Bash Operator!
 
 bash_task = BashOperator(task_id='bash_task_1',
-                         bash_command="echo 'Hello Airflow!'",
+                         bash_command="echo 'Hello Airflow > xavier !'",
                          dag=dag)
