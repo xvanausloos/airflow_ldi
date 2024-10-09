@@ -15,3 +15,11 @@ Default account/pwd: admin/admin
 - Open repo in Visual Studio Code
 - Enable venv `source venv/bin/activate`
 - run `make install-requirements` 
+
+
+## Run a Docker Postgres instance
+The HELM chart already contains a Postgre instance. 
+
+## Connecting Airflow to Postgres
+Go in Airflow UI, create a new connection to Postgres.
+
