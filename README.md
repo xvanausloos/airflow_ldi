@@ -4,6 +4,7 @@ Use for Udemy Airflow training: https://www.udemy.com/course/the-complete-hands-
 
 Run in MacOs:
 - Start Docker desktop 
+- Enable venv : source venv/bin/activate
 - Run script `deploy.sh` bash script 
 
 Open your web browser and go to Airflow UI: `http://localhost:8080`
