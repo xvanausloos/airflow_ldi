@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 
 # let's setup arguments for our dag
 
-my_dag_id = "my_first_dag"
+my_dag_id = "dag2_bashop"
 
 default_args = {
     'owner': 'proton',
