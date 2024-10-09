@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 my_dag_id = "dag2_bashop"
 
 default_args = {
-    'owner': 'proton',
+    'owner': 'xavier',
     'depends_on_past': False,
     'retries': 10,
     'concurrency': 1
@@ -25,7 +25,7 @@ dag = DAG(
 
 # Here's a task based on Bash Operator!
 
-bash_task_1 = BashOperator(
-    task_id='bash_task_1',
-    bash_command="echo 'Hello Airflow > xavier 3 !'",
+bash_task_2 = BashOperator(
+    task_id='bash_task_2',
+    bash_command="echo 'bash task2'",
     dag=dag)
