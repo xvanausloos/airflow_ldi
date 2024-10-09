@@ -1,18 +1,25 @@
 from airflow import DAG
-from datetime import datetime
+from datetime import datetime, timedelta
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 
 my_dag_id = 'dag_pg_connect1'
 
+default_args = {
+    'owner': 'xavier',
+    'depends_on_past': False,
+    'retries': 10,
+    'concurrency': 1
+}
+
 dag = DAG(
     dag_id=my_dag_id,
     start_date=datetime(2023, 1, 1),
-    schedule_interval="@daily",
+    schedule_interval=timedelta(seconds=5),
     catchup=False
 )
     
-create_table = PostgresOperator(
-    task_id='create_table',
+create_table_task = PostgresOperator(
+    task_id='create_table_task',
     postgres_conn_id='postgres',
     sql='''
         CREATE TABLE IF NOT EXISTS users (
@@ -24,4 +31,4 @@ create_table = PostgresOperator(
             email TEXT NOT NULL);'''   
     )
 
-create_table
+
