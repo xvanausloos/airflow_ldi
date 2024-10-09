@@ -7,9 +7,3 @@ helm install $RELEASE_NAME apache-airflow/airflow \
   --namespace $NAMESPACE 
   
 kubectl port-forward svc/$RELEASE_NAME-webserver 8080:8080 --namespace $NAMESPACE
-
-# helm  airflow apache-airflow/airflow -f override-values.yaml             
-
-# kubectl port-forward svc/airflow-webserver 8080:8080 --namespace airflow-example-namespace
-
-
