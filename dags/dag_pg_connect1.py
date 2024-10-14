@@ -1,9 +1,11 @@
 import json
+import pandas as pd
 from airflow import DAG
 from datetime import datetime, timedelta
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 from airflow.providers.http.sensors.http import HttpSensor
 from airflow.providers.http.operators.http import SimpleHttpOperator
+from airflow.operators.python import PythonOperator
 
 
 my_dag_id = 'dag_pg_connect1'
@@ -14,6 +16,14 @@ default_args = {
     'retries': 0,
     'concurrency': 1
 }
+
+def _process_user(ti):
+    user = ti.xcom_pull(task_ids="extract_user")
+    user = user['results'][0]
+    processed_user = pd.json_normalize({
+        'firstname': user['name']['first']
+    })
+    processed_user.to_csv('/tmp/processed_user.csv', index=None, header=False)
 
 dag = DAG(
     dag_id=my_dag_id,
@@ -51,4 +61,13 @@ extract_user = SimpleHttpOperator(
     response_filter=lambda response: json.loads(response.text),
     log_response=True,
     dag=dag
+)
+
+process_user = PythonOperator(
+    task_id='process_user',
+    python_callable=_process_user
+
+
+
+
 )
