@@ -1,7 +1,0 @@
-gitSync:
-    enabled: true
-    repo: git@github.com:xvanausloos/airflow_ldi.git
-    branch: main
-    subPath: "dags"
-    sshKeySecret: airflow-ssh-secret
-    
