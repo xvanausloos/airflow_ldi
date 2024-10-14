@@ -1,7 +1,9 @@
+import json
 from airflow import DAG
 from datetime import datetime, timedelta
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 from airflow.providers.http.sensors.http import HttpSensor
+from airflow.providers.http.operators.http import SimpleHttpOperator
 
 
 my_dag_id = 'dag_pg_connect1'
