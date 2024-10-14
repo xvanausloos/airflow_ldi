@@ -5,7 +5,7 @@ Use for Udemy Airflow training: https://www.udemy.com/course/the-complete-hands-
 ## How to use in MacOs:
 - Start Docker desktop 
 - Enable venv : source venv/bin/activate
-- Run script `deploy.sh` bash script. It will deploy the infrastructure for Airflow in Docker/K8S
+- Run `make deploy-infrastructure`. It will deploy the infrastructure for Airflow in Docker/K8S
 
 Open your web browser and go to Airflow UI: `http://localhost:8080`
 
@@ -18,7 +18,7 @@ Default account/pwd: admin/admin
 
 
 ## Run a Docker Postgres instance
-The HELM chart already contains a Postgre instance. 
+The HELM chart already contains a Postgre instance for the Airflow metastore.
 
 ## Connecting Airflow to Postgres
 Go in Airflow UI, create a new connection to Postgres.

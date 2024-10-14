@@ -14,7 +14,6 @@ default_args = {
 }
 
 # dag declaration
-
 dag = DAG(
     dag_id=my_dag_id,
     default_args=default_args,

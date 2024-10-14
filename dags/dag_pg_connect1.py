@@ -7,14 +7,14 @@ my_dag_id = 'dag_pg_connect1'
 default_args = {
     'owner': 'xavier',
     'depends_on_past': False,
-    'retries': 10,
+    'retries': 0,
     'concurrency': 1
 }
 
 dag = DAG(
     dag_id=my_dag_id,
     default_args=default_args,
-    start_date=datetime(2023, 1, 1),
+    start_date=datetime(2024, 10, 1),
     schedule_interval=timedelta(seconds=5)    
 )
     
