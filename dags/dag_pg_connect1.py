@@ -65,8 +65,9 @@ extract_user = SimpleHttpOperator(
 
 process_user = PythonOperator(
     task_id='process_user',
-    python_callable=_process_user,
+    python_callable=_process_user, 
     dag=dag
 )
 
 extract_user >> process_user
+
