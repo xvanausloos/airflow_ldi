@@ -50,5 +50,7 @@ extract_user = SimpleHttpOperator(
     endpoint='api/',
     method='GET',
     response_filter=lambda response: json.loads(response.text),
-    log_response=True
+    log_response=True,
+    dag=dag
 )
+
