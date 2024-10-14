@@ -1,3 +1,46 @@
+postgresql:
+  ## to use the external db, the embedded one must be disabled
+  enabled: false
+
+## for full list of PgBouncer configs, see values.yaml
+pgbouncer:
+  enabled: true
+
+  ## WARNING: for PostgreSQL with password_encryption = 'SCRAM-SHA-256', the following non-default value is needed
+  # authType: scram-sha-256
+  
+  ## WARNING: for "Azure PostgreSQL", the following non-default values are needed
+  # authType: scram-sha-256
+  # serverSSL:
+  #   mode: verify-ca
+
+externalDatabase:
+  type: postgres
+  host: postgres.example.org
+  port: 5432
+  
+  ## the schema which will contain the airflow tables
+  database: airflow_cluster1
+
+  ## (username - option 1) a plain-text helm value
+  user: my_airflow_user
+  
+  ## (username - option 2) a Kubernetes secret in your airflow namespace
+  #userSecret: "airflow-cluster1-database-credentials"
+  #userSecretKey: "username"
+
+  ## (password - option 1) a plain-text helm value
+  password: my_airflow_password
+
+  ## (password - option 2) a Kubernetes secret in your airflow namespace
+  #passwordSecret: "airflow-cluster1-database-credentials"
+  #passwordSecretKey: "password"
+
+  ## use this for any extra connection-string settings, e.g. ?sslmode=disable
+  properties: ""
+
+
+
 dags:
   gitSync:
     enabled: true
