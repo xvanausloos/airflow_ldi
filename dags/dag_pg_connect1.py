@@ -1,6 +1,8 @@
 from airflow import DAG
 from datetime import datetime, timedelta
 from airflow.providers.postgres.operators.postgres import PostgresOperator
+from airflow.providers.http.sensors.http import HttpSensor
+
 
 my_dag_id = 'dag_pg_connect1'
 
@@ -30,4 +32,10 @@ create_table_task = PostgresOperator(
             password TEXT NOT NULL,
             email TEXT NOT NULL);''' ,
     dag=dag
-    )
+)
+
+is_api_available = HttpSensor(
+    task_id = 'is_api_available',
+    http_conn_id = 'user_api',
+    endpoint='api/'
+)    
