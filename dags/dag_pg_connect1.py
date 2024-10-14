@@ -15,7 +15,7 @@ dag = DAG(
     dag_id=my_dag_id,
     default_args=default_args,
     start_date=datetime(2024, 10, 1),
-    schedule_interval=timedelta(inutes=60)    
+    schedule_interval=timedelta(minutes=60)
 )
     
 create_table_task = PostgresOperator(
