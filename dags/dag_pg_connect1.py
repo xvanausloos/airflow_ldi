@@ -68,3 +68,5 @@ process_user = PythonOperator(
     python_callable=_process_user,
     dag=dag
 )
+
+extract_user >> process_user
