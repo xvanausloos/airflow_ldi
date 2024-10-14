@@ -36,7 +36,6 @@ create_table_task = PostgresOperator(
 
 is_api_available = HttpSensor(
     task_id = 'is_api_available',
-    http_conn_id = None, # remove the HTTP_CONN_ID
-    endpoint='https://randomuser.me/api',
-    dag=dag
+    http_conn_id = 'user_api',
+    endpoint='api/'
 )    
