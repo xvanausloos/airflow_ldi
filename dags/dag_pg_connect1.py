@@ -21,7 +21,8 @@ def _process_user(ti):
     user = ti.xcom_pull(task_ids="extract_user")
     user = user['results'][0]
     processed_user = pd.json_normalize({
-        'firstname': user['name']['first']
+        'firstname': user['name']['first'],
+        'lastname': user['name']['toto']
     })
     processed_user.to_csv('/tmp/processed_user.csv', index=None, header=False)
 
