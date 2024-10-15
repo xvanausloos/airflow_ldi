@@ -46,7 +46,7 @@ dag = DAG(
     schedule_interval=timedelta(minutes=60)
 )
     
-create_table_task = PostgresOperator(
+create_table = PostgresOperator(
     task_id='create_table_task',
     postgres_conn_id='postgres',
     sql='''
@@ -83,9 +83,12 @@ process_user = PythonOperator(
     dag=dag
 )
 
-extract_user >> process_user
 
 store_user = PythonOperator(
     task_id='store_user',
-    python_callable=_store_user
+    python_callable=_store_user,
+    dag=dag
 )
+
+
+create_table >> is_api_available >> extract_user >> process_user >> store_user
