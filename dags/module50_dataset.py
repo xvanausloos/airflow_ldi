@@ -20,14 +20,17 @@ dag = DAG(
     dag_id=my_dag_id,
     default_args=default_args,
     start_date=datetime(2019, 6, 17),
-    schedule_interval=timedelta(seconds=5)
+    schedule="@daily",
+    catchup=False
 )
 
-def my_python_function():
-    print("Hello, Airflow!")
+def update_dataset():
+   with open(my_file.uri, "+a") as f:
+      f.write("producer update")
+   
 
 python_task = PythonOperator(
-    task_id='python_task',
-    python_callable=my_python_function,
+    task_id='update_ds_task',
+    python_callable=update_dataset(),
     dag=dag,
 )
