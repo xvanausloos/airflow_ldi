@@ -24,6 +24,7 @@ dag = DAG(
     catchup=False
 )
 
+@task(outlets=[my_file])
 def update_dataset():
    with open(my_file.uri, "+a") as f:
       f.write("producer update")
